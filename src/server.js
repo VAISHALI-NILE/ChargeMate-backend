@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 app.use(cors());
-
+const port = process.env.PORT || 4000;
 // Connect to MongoDB
 mongoose.connect(
   "mongodb://vaishalinile896:vaibhavi1027@ac-h0jbzen-shard-00-00.tjcwitb.mongodb.net:27017,ac-h0jbzen-shard-00-01.tjcwitb.mongodb.net:27017,ac-h0jbzen-shard-00-02.tjcwitb.mongodb.net:27017/?ssl=true&replicaSet=atlas-fy9xn5-shard-0&authSource=admin&retryWrites=true&w=majority&appName=ChargeMate",
@@ -21,8 +21,8 @@ db.once("open", () => {
   console.log("Connected to MongoDB");
 
   // Start the server after the database connection is established
-  app.listen(5038, () => {
-    console.log("Server is running on port 3000");
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
   });
 });
 
